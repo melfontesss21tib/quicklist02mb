@@ -183,7 +183,14 @@ main {
     justify-content: space-between;
     border-radius: 1.2rem;
     margin-top: 2.4rem;
+
+    /* efeitos  para a aparição da div*/
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hide-warning {
+    opacity: 0;
+    transform: translateY(-10px);
 }

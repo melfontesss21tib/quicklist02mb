@@ -1,4 +1,4 @@
-const items = []
+let items = []
 
 document.querySelector(".add-item button").addEventListener("click", addItem)
 
@@ -47,6 +47,8 @@ function showItemsList() {
     })
 }
 
+localStorage.setItem("items", JSON.stringify(items))
+
 function removeItem(itemName) {
     const itemIndex = items.findIndex((item) => item.name === itemName)
     const divWarning = document.querySelector(".warning")
@@ -74,3 +76,14 @@ function checkItem(itemName) {
 function addHideWarningClass() {
     document.querySelector(".warning").classList.add("hide-warning")
 }
+
+function verifyLocalStorageItems(){
+    const localStorageItems = localStorage.getItem("items")
+
+    if(localStorageItems) {
+        items = JSON.parse(localStorageItems)
+        showItensList()
+    }
+}
+
+verifyLocalStorageItems()
